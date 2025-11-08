@@ -38,42 +38,63 @@ body {
   box-shadow: 0 0 3px #5dfdff;
 }
 
-/* Particle Network Disc */
-.ocean-vinyl-disc {
+/* Moon Container with Particle Convergence */
+.moon-container {
   position: relative;
-  width: 140px;
-  height: 140px;
-  background: radial-gradient(circle, #0a0e1a 0%, #1a1f35 70%, #0a0e1a 100%);
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moon-circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle at 30% 30%,
+    rgba(0, 217, 255, 0.4) 0%,
+    rgba(0, 191, 255, 0.3) 30%,
+    rgba(0, 153, 204, 0.2) 60%,
+    rgba(10, 14, 26, 0.8) 100%);
   border-radius: 50%;
-  border: 3px solid #00d9ff;
   box-shadow:
-    0 0 40px rgba(0, 217, 255, 0.6),
-    inset 0 0 30px rgba(0, 0, 0, 0.5);
-  animation: particle-pulse 4s ease-in-out infinite;
+    0 0 60px rgba(0, 217, 255, 0.6),
+    0 0 100px rgba(0, 217, 255, 0.4),
+    inset -20px -20px 60px rgba(0, 0, 0, 0.4),
+    inset 20px 20px 40px rgba(93, 253, 255, 0.1);
+  border: 2px solid rgba(0, 217, 255, 0.3);
 }
 
-.ocean-vinyl-disc::before {
-  content: '';
+.particle-dot {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
-  background: linear-gradient(45deg, #00d9ff, #5dfdff);
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #00d9ff 0%, #5dfdff 50%, transparent 100%);
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0, 217, 255, 1), 0 0 30px rgba(0, 217, 255, 0.5);
+  box-shadow:
+    0 0 8px rgba(0, 217, 255, 0.8),
+    0 0 12px rgba(0, 217, 255, 0.6),
+    0 0 16px rgba(0, 217, 255, 0.4);
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
 }
 
-.ocean-vinyl-disc::after {
-  content: '';
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
-  border: 1px solid rgba(0, 217, 255, 0.5);
-  border-radius: 50%;
+.particle-dot:nth-child(3n) {
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, #00bfff 0%, #00d9ff 50%, transparent 100%);
+}
+
+.particle-dot:nth-child(5n) {
+  width: 5px;
+  height: 5px;
+  background: radial-gradient(circle, #5dfdff 0%, #00d9ff 50%, transparent 100%);
+}
+
+/* Remove old vinyl disc styles */
+.ocean-vinyl-disc {
+  display: none;
 }
 
 /* Particle Divider */
